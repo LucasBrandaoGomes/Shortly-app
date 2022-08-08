@@ -54,12 +54,14 @@ const Top = styled.div`
     }
 `
 const Bar = styled.div`
+    padding-left:10%;
+    padding-right:10%;
     display:flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items:center;
     div{
         display:flex;
-        width:12%;
+        width:15%;
         justify-content:space-between;
     }
     margin-bottom:3vh;
