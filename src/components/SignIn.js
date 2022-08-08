@@ -4,13 +4,15 @@ import {useNavigate} from 'react-router-dom';
 import  { useState } from  "react"
 import { ThreeDots } from "react-loader-spinner";
 import Header from "./Header";
+import { useContext } from "react";
+import Context from "../contexts/Context.js"
 
-export default function SignUp(){
+export default function SignIn(){
     
     const navigate = useNavigate();
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
+    const { setInfoLogin } = useContext(Context);
     const [disableButton,setDisableButton] = useState(false)
 
 
@@ -29,8 +31,9 @@ export default function SignUp(){
         const promise = axios.post("https://shortly-project-api.herokuapp.com/signin", infoSignIn)
         
         promise
-        .then(res =>{ 
-            navigate("/main");
+        .then(res =>{
+            setInfoLogin({...res.data}); 
+            navigate("/");
         })
         .catch(err=> {alert("Erro, preencha corretamente os dados");
         setDisableButton(false);});
