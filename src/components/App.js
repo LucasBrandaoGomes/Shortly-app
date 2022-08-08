@@ -4,8 +4,7 @@ import  {  useState  }  from  'react' ;
 import SignUp from './SignUp.js'
 import SignIn from "./SignIn.js";
 import Context from "../contexts/Context.js";
-import Init from "./Init.js";
-import Main from './Main.js'
+import Init from './Init.js'
 
 export default function App(){
     
@@ -19,7 +18,6 @@ export default function App(){
                                 <Route path="/" element= {<Init />}/>
                                 <Route path="/signin" element={<SignIn />}/>
                                 <Route path="/signup" element={<SignUp />}/>
-                                <Route path="/main" element={<Main />}/>
                             </Routes>
                         
                     

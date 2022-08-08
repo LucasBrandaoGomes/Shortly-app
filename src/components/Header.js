@@ -1,8 +1,14 @@
 import logoShortly from '../images/shortly.png'
 import styled from "styled-components"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Header(){
+    
+    const navigate = useNavigate()
+    function goInit(){
+        navigate("/")
+    }
+
     return(
         <Top>
             <Bar>
@@ -18,7 +24,7 @@ export default function Header(){
             </Bar>
             <Logo>
                 <h1>Shortly</h1>
-                <img src={logoShortly} alt="icone-logo"/>
+                <img src={logoShortly} onClick={goInit} alt="icone-logo"/>
             </Logo>
         </Top>
     )
@@ -62,9 +68,14 @@ const Logo = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
-    
+    img, h1{
+        &:hover{
+            cursor: pointer;
+
+        }}
     img{
         width:12vh;
         height:12vh;
+        
     }
 `
